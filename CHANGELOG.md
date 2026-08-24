@@ -15,5 +15,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   Logs cut short mid-message return every parameter recovered before the
   cut and are flagged as truncated. Logs carrying incompatible flag bits
   this reader does not understand are refused rather than half-read.
+- DataFlash parameter extraction: the FMT message table is built from the
+  log itself, then PARM messages are decoded through it, so logs predating
+  the Default column still read. Damaged regions are resynchronised on the
+  message header rather than ending the read.
 
 [Unreleased]: https://github.com/Shuaibu78/vane/compare/v0.1.0...HEAD
