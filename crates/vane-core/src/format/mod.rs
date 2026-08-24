@@ -30,7 +30,9 @@ pub fn detect_and_parse(path: &Path) -> Result<FlightLog, Error> {
     } else if dataflash::is_dataflash(&bytes) {
         dataflash::parse(&bytes)
     } else {
-        Err(Error::UnknownFormat { path: path.to_path_buf() })
+        Err(Error::UnknownFormat {
+            path: path.to_path_buf(),
+        })
     }
 }
 

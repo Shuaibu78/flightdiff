@@ -1,19 +1,19 @@
-//! ArduPilot DataFlash (`.bin`) reader.
+//! `ArduPilot` `DataFlash` (`.bin`) reader.
 //!
 //! Format reference: <https://ardupilot.org/dev/docs/common-logs.html>
 
 use crate::{error::Error, model::FlightLog};
 
-/// Every DataFlash message begins with this two-byte header.
+/// Every `DataFlash` message begins with this two-byte header.
 const HEADER: [u8; 2] = [0xA3, 0x95];
 
-/// Whether `bytes` looks like a DataFlash log.
+/// Whether `bytes` looks like a `DataFlash` log.
 #[must_use]
 pub fn is_dataflash(bytes: &[u8]) -> bool {
     bytes.starts_with(&HEADER)
 }
 
-/// Parse a DataFlash log.
+/// Parse a `DataFlash` log.
 ///
 /// # Errors
 /// See [`Error`].

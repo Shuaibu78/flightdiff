@@ -4,7 +4,7 @@ use std::path::PathBuf;
 
 /// Arguments for `vane info`.
 #[derive(clap::Args)]
-pub struct Args {
+pub(crate) struct Args {
     /// Log file to summarise.
     pub log: PathBuf,
 }
@@ -13,7 +13,7 @@ pub struct Args {
 ///
 /// # Errors
 /// Propagates any read or parse failure.
-pub fn run(args: &Args) -> anyhow::Result<()> {
+pub(crate) fn run(args: &Args) -> anyhow::Result<()> {
     let log = vane_core::open(&args.log)?;
     println!("format:     {}", log.format());
     println!("parameters: {}", log.params().len());

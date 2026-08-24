@@ -14,7 +14,11 @@ impl FlightLog {
     /// Construct a log. Intended for use by parsers in [`crate::format`].
     #[must_use]
     pub fn new(format: &'static str) -> Self {
-        Self { format, params: BTreeMap::new(), truncated: false }
+        Self {
+            format,
+            params: BTreeMap::new(),
+            truncated: false,
+        }
     }
 
     /// Name of the source format, e.g. `"ulog"`.

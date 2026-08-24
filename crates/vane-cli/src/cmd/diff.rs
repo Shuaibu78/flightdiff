@@ -7,7 +7,7 @@ use std::path::PathBuf;
 
 /// Arguments for `vane diff`.
 #[derive(clap::Args)]
-pub struct Args {
+pub(crate) struct Args {
     /// Baseline log, usually the flight that behaved.
     pub before: PathBuf,
     /// Comparison log, usually the flight that did not.
@@ -22,7 +22,7 @@ pub struct Args {
 ///
 /// # Errors
 /// Propagates any read or parse failure on either input.
-pub fn run(args: &Args) -> anyhow::Result<()> {
+pub(crate) fn run(args: &Args) -> anyhow::Result<()> {
     let before = vane_core::open(&args.before)?;
     let after = vane_core::open(&args.after)?;
 

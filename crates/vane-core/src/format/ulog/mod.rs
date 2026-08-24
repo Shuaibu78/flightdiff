@@ -1,19 +1,19 @@
-//! PX4 ULog reader.
+//! PX4 `ULog` reader.
 //!
 //! Format reference: <https://docs.px4.io/main/en/dev_log/ulog_file_format.html>
 
 use crate::{error::Error, model::FlightLog};
 
-/// ULog files begin with this magic sequence.
+/// `ULog` files begin with this magic sequence.
 const MAGIC: &[u8] = b"ULog\x01\x12\x35";
 
-/// Whether `bytes` looks like a ULog file.
+/// Whether `bytes` looks like a `ULog` file.
 #[must_use]
 pub fn is_ulog(bytes: &[u8]) -> bool {
     bytes.starts_with(MAGIC)
 }
 
-/// Parse a ULog file.
+/// Parse a `ULog` file.
 ///
 /// # Errors
 /// Returns [`Error::Malformed`] only for damage the reader cannot step past.
