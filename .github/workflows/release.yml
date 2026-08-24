@@ -1,0 +1,20 @@
+# Placeholder. Do not hand-write this file.
+#
+# Run `cargo dist init` once the first version is tagged and it will generate
+# a real release workflow: prebuilt binaries for linux, macOS and Windows, a
+# shell installer, and a Homebrew tap.
+#
+#   cargo install cargo-dist
+#   cargo dist init
+#   git add -A && git commit -m "chore: set up cargo-dist"
+#
+# Distribution friction is the main reason good tools stay unknown. A user who
+# has to install a toolchain before trying your binary usually does not.
+name: Release
+on:
+  workflow_dispatch:
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Replace this file by running 'cargo dist init'."

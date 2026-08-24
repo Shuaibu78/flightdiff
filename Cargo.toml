@@ -1,0 +1,48 @@
+[workspace]
+resolver = "2"
+members = ["crates/*"]
+
+[workspace.package]
+version      = "0.1.0"
+edition      = "2021"
+rust-version = "1.75"
+license      = "MIT OR Apache-2.0"
+repository   = "https://github.com/Shuaibu78/vane"
+homepage     = "https://github.com/Shuaibu78/vane"
+authors      = ["Shuaibu Muhammad <devshuaib@gmail.com>"]
+keywords     = ["uav", "drone", "px4", "ardupilot", "telemetry"]
+categories   = ["command-line-utilities", "parser-implementations", "science"]
+
+# Shared dependency versions. Member crates write `foo.workspace = true`
+# so a bump happens in exactly one place.
+[workspace.dependencies]
+anyhow     = "1"
+thiserror  = "2"
+clap       = { version = "4", features = ["derive", "wrap_help"] }
+memmap2    = "0.9"
+tracing    = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+insta      = "1"
+criterion  = "0.5"
+
+# Lints applied to every crate in the workspace.
+[workspace.lints.rust]
+unsafe_code            = "deny"
+missing_docs           = "warn"
+unreachable_pub        = "warn"
+rust_2018_idioms       = { level = "warn", priority = -1 }
+
+[workspace.lints.clippy]
+all         = { level = "warn", priority = -1 }
+pedantic    = { level = "warn", priority = -1 }
+unwrap_used = "warn"
+expect_used = "warn"
+
+[profile.release]
+lto           = "thin"
+codegen-units = 1
+strip         = true
+
+# Fast enough to actually run the test corpus in debug.
+[profile.dev.package."*"]
+opt-level = 2

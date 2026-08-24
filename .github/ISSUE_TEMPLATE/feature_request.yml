@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest something vane should do.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What are you trying to find out about a flight today, and what makes it hard?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like vane to do
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What you do instead today

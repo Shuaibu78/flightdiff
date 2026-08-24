@@ -1,0 +1,50 @@
+name: Bug report
+description: Something behaved incorrectly.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If `vane` panicked, hung, or read out of bounds on a log file, please
+        report it privately instead. See SECURITY.md.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Command and output
+      render: shell
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `vane --version`
+    validations:
+      required: true
+
+  - type: dropdown
+    id: format
+    attributes:
+      label: Log format
+      options: [PX4 ULog, ArduPilot DataFlash, Betaflight blackbox, Other, Not applicable]
+
+  - type: checkboxes
+    id: log-sharing
+    attributes:
+      label: Log file
+      options:
+        - label: I can share the log file if asked

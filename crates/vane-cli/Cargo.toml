@@ -1,0 +1,28 @@
+[package]
+name        = "vane-cli"
+description = "Fast forensics for UAV flight logs."
+default-run = "vane"
+version.workspace      = true
+edition.workspace      = true
+rust-version.workspace = true
+license.workspace      = true
+repository.workspace   = true
+keywords.workspace     = true
+categories.workspace   = true
+
+[[bin]]
+name = "vane"
+path = "src/main.rs"
+
+[dependencies]
+vane-core = { path = "../vane-core", version = "0.1.0" }
+anyhow.workspace    = true
+clap.workspace      = true
+tracing.workspace   = true
+tracing-subscriber.workspace = true
+
+[dev-dependencies]
+insta.workspace = true
+
+[lints]
+workspace = true
