@@ -23,7 +23,7 @@ memmap2    = "0.9"
 tracing    = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 insta      = "1"
-criterion  = "0.5"
+criterion  = "0.8"
 
 # Lints applied to every crate in the workspace.
 [workspace.lints.rust]
