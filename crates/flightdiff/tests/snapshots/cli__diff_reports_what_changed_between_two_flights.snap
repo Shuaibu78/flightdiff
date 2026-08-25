@@ -1,5 +1,5 @@
 ---
-source: crates/vane-cli/tests/cli.rs
+source: crates/flightdiff/tests/cli.rs
 expression: "run(&[\"diff\", \"good.ulg\", \"crash.ulg\"])"
 ---
 - CBRK_IO_SAFETY: 22027

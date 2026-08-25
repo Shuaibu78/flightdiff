@@ -8,7 +8,7 @@ use criterion::{criterion_group, criterion_main, Criterion};
 fn bench_detect(c: &mut Criterion) {
     let bytes = b"ULog\x01\x12\x35".to_vec();
     c.bench_function("detect_ulog", |b| {
-        b.iter(|| vane_core::format::ulog::is_ulog(std::hint::black_box(&bytes)));
+        b.iter(|| flightdiff_core::format::ulog::is_ulog(std::hint::black_box(&bytes)));
     });
 }
 

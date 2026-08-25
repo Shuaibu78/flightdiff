@@ -1,5 +1,5 @@
 name: Feature request
-description: Suggest something vane should do.
+description: Suggest something flightdiff should do.
 labels: ["enhancement"]
 body:
   - type: textarea
@@ -13,7 +13,7 @@ body:
   - type: textarea
     id: proposal
     attributes:
-      label: What you would like vane to do
+      label: What you would like flightdiff to do
 
   - type: textarea
     id: alternatives

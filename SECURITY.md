@@ -13,6 +13,6 @@ Expect an acknowledgement within 72 hours.
 
 ## Threat model
 
-`vane` parses untrusted binary input. A file that causes a panic, a hang, an
+`flightdiff` parses untrusted binary input. A file that causes a panic, a hang, an
 unbounded allocation, or an out-of-bounds read is a security issue here, not a
 normal bug. The parsers carry fuzz targets under `fuzz/` for this reason.

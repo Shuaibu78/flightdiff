@@ -1,5 +1,5 @@
 [package]
-name        = "vane-core"
+name        = "flightdiff-core"
 description = "Format-agnostic reader for UAV flight logs (PX4 ULog, ArduPilot DataFlash)."
 version.workspace      = true
 edition.workspace      = true

@@ -15,7 +15,7 @@ fn run(args: &[&str]) -> String {
         .skip(1)
         .map(|name| format!("testdata/{name}"))
         .collect();
-    let output = Command::new(env!("CARGO_BIN_EXE_vane"))
+    let output = Command::new(env!("CARGO_BIN_EXE_flightdiff"))
         .current_dir(repo_root())
         .arg(args[0])
         .args(&paths)

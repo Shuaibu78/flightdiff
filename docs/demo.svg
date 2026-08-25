@@ -1,24 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="427" viewBox="0 0 760 427" role="img" aria-label="vane terminal demo">
-<rect width="760" height="427" rx="10" fill="#0d1117"/>
-<rect width="760" height="34" rx="10" fill="#161b22"/>
-<rect y="24" width="760" height="10" fill="#161b22"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="385" viewBox="0 0 900 385" role="img" aria-label="flightdiff terminal demo">
+<rect width="900" height="385" rx="10" fill="#0d1117"/>
+<rect width="900" height="34" rx="10" fill="#161b22"/>
+<rect y="24" width="900" height="10" fill="#161b22"/>
 <circle cx="20" cy="17" r="6" fill="#ff5f56"/>
 <circle cx="40" cy="17" r="6" fill="#ffbd2e"/>
 <circle cx="60" cy="17" r="6" fill="#27c93f"/>
-<text x="380" y="22" fill="#8b949e" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="12" text-anchor="middle">vane</text>
-<text x="20" y="52" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve"><tspan fill="#7ee787">$ </tspan><tspan fill="#e6edf3">vane info testdata/crash.ulg</tspan></text>
+<text x="450" y="22" fill="#8b949e" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="12" text-anchor="middle">flightdiff</text>
+<text x="20" y="52" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve"><tspan fill="#7ee787">$ </tspan><tspan fill="#e6edf3">flightdiff info testdata/crash.ulg</tspan></text>
 <text x="20" y="73" fill="#c9d1d9" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">format:     ulog</text>
 <text x="20" y="94" fill="#c9d1d9" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">log start:  98.765 s</text>
 <text x="20" y="115" fill="#c9d1d9" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">parameters: 7</text>
-<text x="20" y="157" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve"><tspan fill="#7ee787">$ </tspan><tspan fill="#e6edf3">vane diff testdata/good.ulg testdata/crash.ulg</tspan></text>
+<text x="20" y="157" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve"><tspan fill="#7ee787">$ </tspan><tspan fill="#e6edf3">flightdiff diff testdata/good.ulg testdata/crash.ulg</tspan></text>
 <text x="20" y="178" fill="#ff7b72" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">- CBRK_IO_SAFETY: 22027</text>
 <text x="20" y="199" fill="#e3b341" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">~ MC_PITCHRATE_D: 0.003 -&gt; 0.012</text>
 <text x="20" y="220" fill="#e3b341" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">~ MPC_TILTMAX_AIR: 45 -&gt; 60</text>
 <text x="20" y="241" fill="#e3b341" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">~ MPC_XY_P: 0.95 -&gt; 1.8</text>
 <text x="20" y="262" fill="#7ee787" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">+ MPC_Z_VEL_MAX_UP: 3</text>
-<text x="20" y="304" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve"><tspan fill="#7ee787">$ </tspan><tspan fill="#e6edf3">vane info testdata/truncated.ulg</tspan></text>
-<text x="20" y="325" fill="#c9d1d9" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">format:     ulog</text>
-<text x="20" y="346" fill="#c9d1d9" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">log start:  45.000 s</text>
-<text x="20" y="367" fill="#c9d1d9" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">parameters: 7</text>
-<text x="20" y="388" fill="#8b949e" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">note:       log is truncated; recovered what was readable</text>
+<text x="20" y="304" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve"><tspan fill="#7ee787">$ </tspan><tspan fill="#e6edf3">flightdiff diff testdata/good.ulg testdata/truncated.ulg</tspan></text>
+<text x="20" y="325" fill="#ffa657" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">! testdata/truncated.ulg was cut short; only the parameters recovered before the cut were compared</text>
+<text x="20" y="346" fill="#c9d1d9" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="14" xml:space="preserve">no parameter differences</text>
 </svg>

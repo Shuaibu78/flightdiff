@@ -1,12 +1,12 @@
-//! `vane diff` — parameter differences between two logs.
+//! `flightdiff diff` — parameter differences between two logs.
 //!
 //! This is the first shipped feature. "What changed between the flight that
 //! worked and the flight that crashed" is the question it answers.
 
+use flightdiff_core::FlightLog;
 use std::path::{Path, PathBuf};
-use vane_core::FlightLog;
 
-/// Arguments for `vane diff`.
+/// Arguments for `flightdiff diff`.
 #[derive(clap::Args)]
 pub(crate) struct Args {
     /// Baseline log, usually the flight that behaved.
@@ -24,8 +24,8 @@ pub(crate) struct Args {
 /// # Errors
 /// Propagates any read or parse failure on either input.
 pub(crate) fn run(args: &Args) -> anyhow::Result<()> {
-    let before = vane_core::open(&args.before)?;
-    let after = vane_core::open(&args.after)?;
+    let before = flightdiff_core::open(&args.before)?;
+    let after = flightdiff_core::open(&args.after)?;
 
     note_truncation(&args.before, &before);
     note_truncation(&args.after, &after);

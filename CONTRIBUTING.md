@@ -5,8 +5,8 @@ Thanks for taking the time.
 ## Getting set up
 
 ```sh
-git clone https://github.com/Shuaibu78/vane
-cd vane
+git clone https://github.com/Shuaibu78/flightdiff
+cd flightdiff
 cargo check --workspace --all-targets
 cargo test --workspace
 ```
@@ -23,7 +23,7 @@ CI runs exactly these three, so a clean local run means a clean CI run.
 
 ## Adding a log format
 
-1. Add a module under `crates/vane-core/src/format/`.
+1. Add a module under `crates/flightdiff-core/src/format/`.
 2. Expose `is_<format>(&[u8]) -> bool` and `parse(&[u8]) -> Result<FlightLog, Error>`.
 3. Add one arm to `detect_and_parse`.
 4. Add a sample log under `testdata/` with its provenance recorded.

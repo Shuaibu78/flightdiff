@@ -7,8 +7,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 
 ### Added
-- `vane info` summarises a log.
-- `vane diff` reports parameter differences between two logs.
+- `flightdiff info` summarises a log.
+- `flightdiff diff` reports parameter differences between two logs.
 - Format detection for PX4 ULog and ArduPilot DataFlash.
 - ULog parameter extraction: the file header, definitions section and
   parameter messages are parsed, so `info` and `diff` report real values.
@@ -17,8 +17,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   this reader does not understand are refused rather than half-read.
 - ULog logging start time, read from the file header and reported by `info`.
 - Synthetic ULog fixtures in `testdata/` with a generator in
-  `crates/vane-core/tests/fixtures.rs`. A normal test run compares the
-  committed bytes against the generator; `VANE_REGENERATE_FIXTURES=1`
+  `crates/flightdiff-core/tests/fixtures.rs`. A normal test run compares the
+  committed bytes against the generator; `FLIGHTDIFF_REGENERATE_FIXTURES=1`
   rewrites them.
 - Snapshot tests over real CLI output for `info` and `diff`.
 - `docs/demo.svg`, generated from captured program output rather than
@@ -30,4 +30,11 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   `no parameter differences` against a truncated log without mentioning that
   the comparison covered only what could be read.
 
-[Unreleased]: https://github.com/Shuaibu78/vane/compare/v0.1.0...HEAD
+### Changed
+- Renamed from `vane` to `flightdiff`. The crates.io names `vane` and
+  `vane-core` are held by an unrelated, actively maintained reverse proxy, so
+  the library could never have been published and the binary would have fought
+  another crate for the same filename on `PATH`. Crates are now `flightdiff`
+  and `flightdiff-core`.
+
+[Unreleased]: https://github.com/Shuaibu78/flightdiff/compare/v0.1.0...HEAD
