@@ -2,4 +2,5 @@
 source: crates/vane-cli/tests/cli.rs
 expression: "run(&[\"diff\", \"good.ulg\", \"truncated.ulg\"])"
 ---
+! testdata/truncated.ulg was cut short; only the parameters recovered before the cut were compared
 no parameter differences

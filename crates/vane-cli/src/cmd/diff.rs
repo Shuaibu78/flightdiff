@@ -3,7 +3,8 @@
 //! This is the first shipped feature. "What changed between the flight that
 //! worked and the flight that crashed" is the question it answers.
 
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
+use vane_core::FlightLog;
 
 /// Arguments for `vane diff`.
 #[derive(clap::Args)]
@@ -25,6 +26,9 @@ pub(crate) struct Args {
 pub(crate) fn run(args: &Args) -> anyhow::Result<()> {
     let before = vane_core::open(&args.before)?;
     let after = vane_core::open(&args.after)?;
+
+    note_truncation(&args.before, &before);
+    note_truncation(&args.after, &after);
 
     let mut keys: Vec<&String> = before.params().keys().collect();
     keys.extend(after.params().keys());
@@ -51,4 +55,13 @@ pub(crate) fn run(args: &Args) -> anyhow::Result<()> {
         println!("no parameter differences");
     }
     Ok(())
+}
+
+fn note_truncation(path: &Path, log: &FlightLog) {
+    if log.is_truncated() {
+        println!(
+            "! {} was cut short; only the parameters recovered before the cut were compared",
+            path.display()
+        );
+    }
 }
