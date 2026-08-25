@@ -1,4 +1,4 @@
-//! `vane` command line entry point.
+//! `flightdiff` command line entry point.
 
 mod cmd;
 
@@ -6,7 +6,7 @@ use clap::{Parser, Subcommand};
 
 /// Fast forensics for UAV flight logs.
 #[derive(Parser)]
-#[command(name = "vane", version, about, long_about = None)]
+#[command(name = "flightdiff", version, about, long_about = None)]
 struct Cli {
     /// Increase logging verbosity. Repeat for more detail.
     #[arg(short, long, action = clap::ArgAction::Count, global = true)]

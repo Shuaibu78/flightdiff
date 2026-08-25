@@ -1,8 +1,8 @@
-//! `vane info` — summarise a single log.
+//! `flightdiff info` — summarise a single log.
 
 use std::path::PathBuf;
 
-/// Arguments for `vane info`.
+/// Arguments for `flightdiff info`.
 #[derive(clap::Args)]
 pub(crate) struct Args {
     /// Log file to summarise.
@@ -14,7 +14,7 @@ pub(crate) struct Args {
 /// # Errors
 /// Propagates any read or parse failure.
 pub(crate) fn run(args: &Args) -> anyhow::Result<()> {
-    let log = vane_core::open(&args.log)?;
+    let log = flightdiff_core::open(&args.log)?;
     println!("format:     {}", log.format());
     if let Some(started_at) = log.started_at() {
         println!("log start:  {:.3} s", started_at.as_secs_f64());

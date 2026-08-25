@@ -1,5 +1,5 @@
 ---
-source: crates/vane-cli/tests/cli.rs
+source: crates/flightdiff/tests/cli.rs
 expression: "run(&[\"diff\", \"crash.ulg\", \"truncated.ulg\"])"
 ---
 ! testdata/truncated.ulg was cut short; only the parameters recovered before the cut were compared

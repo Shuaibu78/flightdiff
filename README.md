@@ -1,11 +1,11 @@
 <div align="center">
 
-# vane
+# flightdiff
 
 **Fast forensics for UAV flight logs.**
 
-[![CI](https://github.com/Shuaibu78/vane/actions/workflows/ci.yml/badge.svg)](https://github.com/Shuaibu78/vane/actions/workflows/ci.yml)
-[![Crates.io](https://img.shields.io/crates/v/vane-cli.svg)](https://crates.io/crates/vane-cli)
+[![CI](https://github.com/Shuaibu78/flightdiff/actions/workflows/ci.yml/badge.svg)](https://github.com/Shuaibu78/flightdiff/actions/workflows/ci.yml)
+[![Crates.io](https://img.shields.io/crates/v/flightdiff.svg)](https://crates.io/crates/flightdiff)
 [![License](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg)](#license)
 
 </div>
@@ -15,7 +15,7 @@
 ![demo](docs/demo.svg)
 
 ```
-$ vane diff testdata/good.ulg testdata/crash.ulg
+$ flightdiff diff testdata/good.ulg testdata/crash.ulg
 - CBRK_IO_SAFETY: 22027
 ~ MC_PITCHRATE_D: 0.003 -> 0.012
 ~ MPC_TILTMAX_AIR: 45 -> 60
@@ -27,10 +27,10 @@ $ vane diff testdata/good.ulg testdata/crash.ulg
 
 Working out why a drone fell out of the sky currently means uploading a log to
 someone else's server, or installing a Qt stack, or piping `mavlogdump.py`
-through `grep`. `vane` is one binary, runs offline, and opens a 500 MB log
+through `grep`. `flightdiff` is one binary, runs offline, and opens a 500 MB log
 faster than the alternatives finish importing.
 
-| | vane | Flight Review | pyFlightAnalysis |
+| | flightdiff | Flight Review | pyFlightAnalysis |
 | --- | --- | --- | --- |
 | 500 MB ULog, cold | *TODO* | *TODO* | *TODO* |
 | Dependencies | none | Python + Bokeh | PyQt + numpy + matplotlib |
@@ -43,14 +43,14 @@ faster than the alternatives finish importing.
 ## Install
 
 ```sh
-cargo install vane-cli
+cargo install flightdiff
 ```
 
 ## Usage
 
 ```sh
-vane info flight.ulg           # what is this log
-vane diff before.ulg after.ulg # what changed
+flightdiff info flight.ulg           # what is this log
+flightdiff diff before.ulg after.ulg # what changed
 ```
 
 ## Supported formats
@@ -63,21 +63,21 @@ vane diff before.ulg after.ulg # what changed
 
 ## Using the parser as a library
 
-The parsing lives in `vane-core` and is published separately, so you can build
+The parsing lives in `flightdiff-core` and is published separately, so you can build
 your own tooling on it without taking the CLI.
 
 ```rust,no_run
-let log = vane_core::open("flight.ulg")?;
+let log = flightdiff_core::open("flight.ulg")?;
 for (name, value) in log.params() {
     println!("{name} = {value}");
 }
-# Ok::<(), vane_core::Error>(())
+# Ok::<(), flightdiff_core::Error>(())
 ```
 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). Issues tagged
-[`good first issue`](https://github.com/Shuaibu78/vane/labels/good%20first%20issue)
+[`good first issue`](https://github.com/Shuaibu78/flightdiff/labels/good%20first%20issue)
 are a reasonable entry point.
 
 ## License

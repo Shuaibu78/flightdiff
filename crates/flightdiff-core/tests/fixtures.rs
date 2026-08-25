@@ -3,16 +3,16 @@
 //! Builds the synthetic `ULog` fixtures in `testdata/` and proves the parser
 //! reads back exactly what was written.
 //!
-//! Set `VANE_REGENERATE_FIXTURES=1` to rewrite the files on disk. Without it
+//! Set `FLIGHTDIFF_REGENERATE_FIXTURES=1` to rewrite the files on disk. Without it
 //! this only compares, so a normal test run never mutates the repository and
 //! a fixture edited by hand fails loudly.
 
+use flightdiff_core::ParamValue;
 use std::{collections::BTreeMap, fs, path::PathBuf};
-use vane_core::ParamValue;
 
 const MAGIC: &[u8] = b"ULog\x01\x12\x35";
 const VERSION: u8 = 1;
-const REGENERATE: &str = "VANE_REGENERATE_FIXTURES";
+const REGENERATE: &str = "FLIGHTDIFF_REGENERATE_FIXTURES";
 
 const MSG_FLAG_BITS: u8 = b'B';
 const MSG_FORMAT: u8 = b'F';
@@ -156,9 +156,9 @@ fn committed_fixtures_match_the_generator() {
     }
 }
 
-fn parsed(name: &str) -> vane_core::FlightLog {
+fn parsed(name: &str) -> flightdiff_core::FlightLog {
     regenerate_if_requested();
-    vane_core::open(testdata_dir().join(name)).unwrap()
+    flightdiff_core::open(testdata_dir().join(name)).unwrap()
 }
 
 fn expected_map(parameters: &[(&str, ParamValue)]) -> BTreeMap<String, ParamValue> {

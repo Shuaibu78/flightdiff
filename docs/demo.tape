@@ -13,11 +13,11 @@ Hide
 Type "cd .. && clear" Enter
 Show
 
-Type "vane info testdata/crash.ulg" Sleep 400ms Enter
+Type "flightdiff info testdata/crash.ulg" Sleep 400ms Enter
 Sleep 2s
 
-Type "vane diff testdata/good.ulg testdata/crash.ulg" Sleep 400ms Enter
+Type "flightdiff diff testdata/good.ulg testdata/crash.ulg" Sleep 400ms Enter
 Sleep 3s
 
-Type "vane info testdata/truncated.ulg" Sleep 400ms Enter
+Type "flightdiff info testdata/truncated.ulg" Sleep 400ms Enter
 Sleep 3s

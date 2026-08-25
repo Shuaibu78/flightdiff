@@ -7,12 +7,12 @@ the change should update it.
 
 ```
 crates/
-  vane-core/   parsing and the log model. No I/O policy, no printing.
-  vane-cli/    argument parsing and output formatting. No parsing logic.
+  flightdiff-core/   parsing and the log model. No I/O policy, no printing.
+  flightdiff/        argument parsing and output formatting. No parsing logic.
 ```
 
-The split exists so other projects can depend on `vane-core` alone. That means
-`vane-core` must never print, never call `std::process::exit`, and never
+The split exists so other projects can depend on `flightdiff-core` alone. That means
+`flightdiff-core` must never print, never call `std::process::exit`, and never
 assume a terminal.
 
 ## Data flow
@@ -36,6 +36,6 @@ actually touched. The single `unsafe` block is confined to
 
 - Columnar storage for time series, so scanning one field across a million
   samples does not pull in the others.
-- A rule engine (`vane check`) encoding known failure signatures: vibration
+- A rule engine (`flightdiff check`) encoding known failure signatures: vibration
   thresholds, EKF innovation spikes, battery sag, motor output divergence.
 - Recovery of records from truncated and partially overwritten logs.

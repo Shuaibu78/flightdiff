@@ -1,11 +1,11 @@
 //! Format-agnostic reading of UAV flight logs.
 //!
 //! The crate is deliberately usable on its own: other tools should be able to
-//! depend on `vane-core` for parsing without pulling in the CLI.
+//! depend on `flightdiff-core` for parsing without pulling in the CLI.
 //!
 //! ```no_run
-//! # fn main() -> Result<(), vane_core::Error> {
-//! let log = vane_core::open("flight.ulg")?;
+//! # fn main() -> Result<(), flightdiff_core::Error> {
+//! let log = flightdiff_core::open("flight.ulg")?;
 //! println!("{} parameters", log.params().len());
 //! # Ok(())
 //! # }
