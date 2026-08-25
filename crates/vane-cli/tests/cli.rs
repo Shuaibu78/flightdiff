@@ -5,15 +5,18 @@
 
 use std::{path::PathBuf, process::Command};
 
-fn fixture(name: &str) -> PathBuf {
-    PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-        .join("../../testdata")
-        .join(name)
+fn repo_root() -> PathBuf {
+    PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..")
 }
 
 fn run(args: &[&str]) -> String {
-    let paths: Vec<PathBuf> = args.iter().skip(1).map(|name| fixture(name)).collect();
+    let paths: Vec<String> = args
+        .iter()
+        .skip(1)
+        .map(|name| format!("testdata/{name}"))
+        .collect();
     let output = Command::new(env!("CARGO_BIN_EXE_vane"))
+        .current_dir(repo_root())
         .arg(args[0])
         .args(&paths)
         .output()
@@ -46,4 +49,9 @@ fn diff_reports_what_changed_between_two_flights() {
 #[test]
 fn diff_against_a_truncated_log() {
     insta::assert_snapshot!(run(&["diff", "good.ulg", "truncated.ulg"]));
+}
+
+#[test]
+fn diff_reports_truncation_alongside_real_differences() {
+    insta::assert_snapshot!(run(&["diff", "crash.ulg", "truncated.ulg"]));
 }

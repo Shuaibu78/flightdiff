@@ -1,0 +1,10 @@
+---
+source: crates/vane-cli/tests/cli.rs
+expression: "run(&[\"diff\", \"crash.ulg\", \"truncated.ulg\"])"
+---
+! testdata/truncated.ulg was cut short; only the parameters recovered before the cut were compared
++ CBRK_IO_SAFETY: 22027
+~ MC_PITCHRATE_D: 0.012 -> 0.003
+~ MPC_TILTMAX_AIR: 60 -> 45
+~ MPC_XY_P: 1.8 -> 0.95
+- MPC_Z_VEL_MAX_UP: 3

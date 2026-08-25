@@ -25,4 +25,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   mocked up, replacing a README image that pointed at a file which did
   not exist.
 
+### Fixed
+- `diff` now says when either log was cut short. It previously printed
+  `no parameter differences` against a truncated log without mentioning that
+  the comparison covered only what could be read.
+
 [Unreleased]: https://github.com/Shuaibu78/vane/compare/v0.1.0...HEAD
