@@ -15,10 +15,6 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   Logs cut short mid-message return every parameter recovered before the
   cut and are flagged as truncated. Logs carrying incompatible flag bits
   this reader does not understand are refused rather than half-read.
-- DataFlash parameter extraction: the FMT message table is built from the
-  log itself, then PARM messages are decoded through it, so logs predating
-  the Default column still read. Damaged regions are resynchronised on the
-  message header rather than ending the read.
 - ULog logging start time, read from the file header and reported by `info`.
 - Synthetic ULog fixtures in `testdata/` with a generator in
   `crates/vane-core/tests/fixtures.rs`. A normal test run compares the
