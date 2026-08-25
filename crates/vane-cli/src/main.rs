@@ -16,8 +16,6 @@ struct Cli {
     command: Command,
 }
 
-// Subcommands are declared up front, including ones not yet implemented, so
-// the CLI surface never changes shape as features land.
 #[derive(Subcommand)]
 enum Command {
     /// Summarise a log: format, duration, vehicle, parameter count.

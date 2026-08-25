@@ -9,3 +9,6 @@
 *.bin
 !testdata/**/*.ulg
 !testdata/**/*.bin
+
+# Personal notes, not part of the project
+/WALKTHROUGH.md
