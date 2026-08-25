@@ -1,0 +1,5 @@
+---
+source: crates/vane-cli/tests/cli.rs
+expression: "run(&[\"diff\", \"good.ulg\", \"truncated.ulg\"])"
+---
+no parameter differences

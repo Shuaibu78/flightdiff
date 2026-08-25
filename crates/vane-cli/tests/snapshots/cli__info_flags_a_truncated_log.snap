@@ -1,0 +1,8 @@
+---
+source: crates/vane-cli/tests/cli.rs
+expression: "run(&[\"info\", \"truncated.ulg\"])"
+---
+format:     ulog
+log start:  45.000 s
+parameters: 7
+note:       log is truncated; recovered what was readable

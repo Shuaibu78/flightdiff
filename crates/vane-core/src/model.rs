@@ -1,12 +1,13 @@
 //! The format-agnostic log model every parser targets.
 
-use std::collections::BTreeMap;
+use std::{collections::BTreeMap, time::Duration};
 
 /// A parsed flight log, normalised across source formats.
 #[derive(Debug, Clone, Default)]
 pub struct FlightLog {
     format: &'static str,
     params: BTreeMap<String, ParamValue>,
+    started_at: Option<Duration>,
     truncated: bool,
 }
 
@@ -17,6 +18,7 @@ impl FlightLog {
         Self {
             format,
             params: BTreeMap::new(),
+            started_at: None,
             truncated: false,
         }
     }
@@ -36,6 +38,22 @@ impl FlightLog {
     /// Insert a parameter. Intended for use by parsers.
     pub fn insert_param(&mut self, key: impl Into<String>, value: ParamValue) {
         self.params.insert(key.into(), value);
+    }
+
+    /// Time the log started, as recorded in its header.
+    ///
+    /// This is the logging start offset the format carries, not a wall-clock
+    /// date, and not the length of the flight. Reporting how long a flight
+    /// lasted needs the last timestamp in the data section, which this reader
+    /// does not yet visit.
+    #[must_use]
+    pub fn started_at(&self) -> Option<Duration> {
+        self.started_at
+    }
+
+    /// Record the logging start time. Intended for use by parsers.
+    pub fn set_started_at(&mut self, started_at: Duration) {
+        self.started_at = Some(started_at);
     }
 
     /// Whether parsing stopped early because the file was cut short.

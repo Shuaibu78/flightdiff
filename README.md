@@ -15,10 +15,12 @@
 ![demo](docs/demo.svg)
 
 ```
-$ vane diff good.ulg crash.ulg
-~ MPC_XY_P: 0.95 -> 1.8
-~ MC_PITCHRATE_D: 0.003 -> 0.012
+$ vane diff testdata/good.ulg testdata/crash.ulg
 - CBRK_IO_SAFETY: 22027
+~ MC_PITCHRATE_D: 0.003 -> 0.012
+~ MPC_TILTMAX_AIR: 45 -> 60
+~ MPC_XY_P: 0.95 -> 1.8
++ MPC_Z_VEL_MAX_UP: 3
 ```
 
 ## Why

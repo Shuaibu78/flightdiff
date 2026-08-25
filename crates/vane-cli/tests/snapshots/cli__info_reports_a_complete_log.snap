@@ -1,0 +1,7 @@
+---
+source: crates/vane-cli/tests/cli.rs
+expression: "run(&[\"info\", \"crash.ulg\"])"
+---
+format:     ulog
+log start:  98.765 s
+parameters: 7

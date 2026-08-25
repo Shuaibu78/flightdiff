@@ -16,6 +16,9 @@ pub(crate) struct Args {
 pub(crate) fn run(args: &Args) -> anyhow::Result<()> {
     let log = vane_core::open(&args.log)?;
     println!("format:     {}", log.format());
+    if let Some(started_at) = log.started_at() {
+        println!("log start:  {:.3} s", started_at.as_secs_f64());
+    }
     println!("parameters: {}", log.params().len());
     if log.is_truncated() {
         println!("note:       log is truncated; recovered what was readable");

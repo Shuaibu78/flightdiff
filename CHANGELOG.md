@@ -19,5 +19,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   log itself, then PARM messages are decoded through it, so logs predating
   the Default column still read. Damaged regions are resynchronised on the
   message header rather than ending the read.
+- ULog logging start time, read from the file header and reported by `info`.
+- Synthetic ULog fixtures in `testdata/` with a generator in
+  `crates/vane-core/tests/fixtures.rs`. A normal test run compares the
+  committed bytes against the generator; `VANE_REGENERATE_FIXTURES=1`
+  rewrites them.
+- Snapshot tests over real CLI output for `info` and `diff`.
+- `docs/demo.svg`, generated from captured program output rather than
+  mocked up, replacing a README image that pointed at a file which did
+  not exist.
 
 [Unreleased]: https://github.com/Shuaibu78/vane/compare/v0.1.0...HEAD

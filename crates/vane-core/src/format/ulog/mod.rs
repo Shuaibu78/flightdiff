@@ -3,11 +3,15 @@
 //! Format reference: <https://docs.px4.io/main/en/dev_log/ulog_file_format.html>
 
 use crate::{error::Error, model::FlightLog, model::ParamValue};
+use std::time::Duration;
 
 /// `ULog` files begin with this magic sequence.
 const MAGIC: &[u8] = b"ULog\x01\x12\x35";
 
 const FILE_HEADER_LEN: usize = 16;
+const VERSION_OFFSET: usize = 7;
+const TIMESTAMP_RANGE: std::ops::Range<usize> = 8..16;
+const KNOWN_VERSION: u8 = 1;
 const MESSAGE_HEADER_LEN: usize = 3;
 const PARAM_VALUE_LEN: usize = 4;
 const INCOMPAT_FLAGS_RANGE: std::ops::Range<usize> = 8..16;
@@ -44,6 +48,7 @@ pub fn parse(bytes: &[u8]) -> Result<FlightLog, Error> {
     }
 
     let mut log = FlightLog::new("ulog");
+    read_file_header(bytes, &mut log);
     let mut offset = FILE_HEADER_LEN;
     let mut at_first_message = true;
     let mut reached_data_section = false;
@@ -72,6 +77,23 @@ pub fn parse(bytes: &[u8]) -> Result<FlightLog, Error> {
 
     log.set_truncated(!reached_data_section);
     Ok(log)
+}
+
+fn read_file_header(bytes: &[u8], log: &mut FlightLog) {
+    match bytes.get(VERSION_OFFSET) {
+        Some(&version) if version != KNOWN_VERSION => {
+            tracing::debug!(version, "reading a ULog version this reader predates");
+        }
+        Some(_) => {}
+        None => return,
+    }
+
+    if let Some(raw) = bytes
+        .get(TIMESTAMP_RANGE)
+        .and_then(|slice| <[u8; 8]>::try_from(slice).ok())
+    {
+        log.set_started_at(Duration::from_micros(u64::from_le_bytes(raw)));
+    }
 }
 
 struct Message<'a> {
