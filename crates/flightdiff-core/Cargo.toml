@@ -13,6 +13,7 @@ categories.workspace   = true
 thiserror.workspace = true
 memmap2.workspace   = true
 tracing.workspace   = true
+flightlog-core      = { version = "0.1.2", default-features = false }
 
 [dev-dependencies]
 insta.workspace     = true
